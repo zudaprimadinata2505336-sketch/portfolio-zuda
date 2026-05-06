@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zuda Portfolio Premium</title>
+
+<!-- FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ICON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top right,rgba(56,189,248,.18),transparent 30%),
+radial-gradient(circle at bottom left,rgba(14,165,233,.12),transparent 30%);
+z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:1000;
+}
+
+.logo{
+font-size:26px;
+font-weight:800;
+color:#38bdf8;
+text-shadow:0 0 15px rgba(56,189,248,.4);
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+align-items:center;
+gap:60px;
+padding:130px 8%;
+}
+
+.hero-text h1{
+font-size:68px;
+line-height:1.1;
+margin-bottom:20px;
+font-weight:800;
+background:linear-gradient(90deg,#fff,#38bdf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.9;
+color:#cbd5e1;
+max-width:650px;
+}
+
+/* BUTTON */
+.hero-button{
+margin-top:30px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:13px 25px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:#38bdf8;
+color:white;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(56,189,248,.5);
+}
+
+.btn-outline{
+border:1px solid #38bdf8;
+color:#38bdf8;
+}
+
+.btn-outline:hover{
+background:#38bdf8;
+color:white;
+}
+
+/* FOTO */
+.profile-box{
+padding:18px;
+border-radius:35px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.profile-img{
+width:100%;
+max-width:420px;
+height:560px;
+object-fit:cover;
+border-radius:28px;
+display:block;
+margin:auto;
+}
+
+/* SECTION */
+section{
+max-width:1200px;
+margin:auto;
+padding:100px 20px;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+color:#38bdf8;
+font-weight:700;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:35px;
+backdrop-filter:blur(20px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(56,189,248,.18);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
+}
+
+/* ABOUT */
+.about-list{
+list-style:none;
+}
+
+.about-list li{
+margin-bottom:15px;
+font-size:17px;
+color:#dbeafe;
+}
+
+/* SKILL */
+.skill{
+margin-bottom:22px;
+}
+
+.skill-title{
+margin-bottom:8px;
+font-weight:600;
+}
+
+.bar{
+height:12px;
+background:rgba(255,255,255,.08);
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+border-radius:20px;
+background:linear-gradient(90deg,#0ea5e9,#38bdf8);
+}
+
+/* EXPERIENCE */
+.exp-title{
+font-size:22px;
+margin-bottom:10px;
+color:#38bdf8;
+}
+
+/* PROJECT */
+.project-card h3{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.project-card p{
+line-height:1.8;
+color:#cbd5e1;
+margin-bottom:15px;
+}
+
+.project-card ul{
+padding-left:20px;
+}
+
+.project-card li{
+margin-bottom:8px;
+color:#dbeafe;
+}
+
+/* SOCIAL ICON */
+.social-icons{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.social-icons a{
+width:70px;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+font-size:30px;
+color:#38bdf8;
+text-decoration:none;
+transition:.4s;
+}
+
+.social-icons a:hover{
+transform:translateY(-10px) scale(1.1) rotate(8deg);
+box-shadow:0 0 30px rgba(56,189,248,.4);
+background:#38bdf8;
+color:white;
+}
+
+.contact-text{
+text-align:center;
+margin-top:20px;
+color:#cbd5e1;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:35px;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#94a3b8;
+}
+
+/* ========================= */
+/* RESPONSIVE MOBILE */
+/* ========================= */
+
+@media(max-width:900px){
+
+nav{
+padding:15px 20px;
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+gap:15px;
+font-size:14px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+padding-top:180px;
+gap:40px;
+}
+
+.hero-text h1{
+font-size:42px;
+}
+
+.hero-text p{
+font-size:16px;
+line-height:1.7;
+}
+
+.hero-button{
+justify-content:center;
+}
+
+.profile-img{
+height:420px;
+max-width:300px;
+}
+
+.section-title{
+font-size:34px;
+}
+
+.card{
+padding:25px;
+}
+
+.about-list li{
+font-size:15px;
+}
+
+.project-card h3{
+font-size:21px;
+}
+
+.project-card p,
+.project-card li{
+font-size:15px;
+line-height:1.7;
+}
+
+.social-icons a{
+width:60px;
+height:60px;
+font-size:24px;
+}
+
+}
+
+/* EXTRA SMALL */
+@media(max-width:500px){
+
+.hero-text h1{
+font-size:34px;
+}
+
+.hero-text p{
+font-size:15px;
+}
+
+.btn{
+padding:11px 20px;
+font-size:14px;
+}
+
+.section-title{
+font-size:28px;
+}
+
+.logo{
+font-size:22px;
+}
+
+.profile-img{
+height:350px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">
+<i class="fa-solid fa-code"></i> Zuda.dev
+</div>
+
+<ul>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#skills">Skill</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#project">Project</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+Hello, I'm <br>
+Zuda Primadinata
+</h1>
+
+<p>
+Mahasiswa Pendidikan Teknik Informatika Universitas Negeri Malang yang memiliki minat tinggi pada dunia software development, database system, UI/UX design, dan teknologi modern.
+Saya memiliki semangat untuk terus belajar dan mengembangkan kemampuan dalam membangun solusi digital yang inovatif, modern, dan bermanfaat.
+</p>
+
+<div class="hero-button">
+<a href="#project" class="btn btn-primary">Lihat Project</a>
+<a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+</div>
+
+</div>
+
+<!-- FOTO -->
+<div class="profile-box">
+
+<img src="fotoku.jpeg" alt="Foto Zuda" class="profile-img">
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+<h2 class="section-title">
+<i class="fa-solid fa-user"></i> Tentang Saya
+</h2>
+
+<div class="card">
+
+<ul class="about-list">
+
+<li><b>Nama Lengkap:</b> Zuda Primadinata Hidayatullah</li>
+
+<li><b>Tempat, Tanggal Lahir:</b> Malang, 19 November 2006</li>
+
+<li><b>Kampus:</b> Universitas Negeri Malang</li>
+
+<li><b>Jurusan:</b> Pendidikan Teknik Informatika</li>
+
+<li><b>Minat:</b> Software Development, Database, UI Design, Web Development</li>
+
+<li><b>Hobi:</b> Futsal, Running, Mendaki Gunung</li>
+
+<li>
+<b>Tujuan:</b> Menjadi developer yang mampu menciptakan aplikasi dan sistem digital modern yang bermanfaat bagi masyarakat.
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+<h2 class="section-title">
+<i class="fa-solid fa-laptop-code"></i> Skills
+</h2>
+
+<div class="card">
+
+<div class="skill">
+<div class="skill-title">Canva - 90%</div>
+<div class="bar">
+<div class="progress" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-title">C++ - 75%</div>
+<div class="bar">
+<div class="progress" style="width:75%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-title">Java - 70%</div>
+<div class="bar">
+<div class="progress" style="width:70%"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-title">MySQL - 82%</div>
+<div class="bar">
+<div class="progress" style="width:82%"></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+
+<h2 class="section-title">
+<i class="fa-solid fa-briefcase"></i> Experience
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3 class="exp-title">OSIS / Organisasi Sekolah</h3>
+
+<p>
+Aktif dalam kegiatan organisasi sekolah selama 1 tahun yang membantu meningkatkan kemampuan komunikasi, tanggung jawab, serta kerja sama tim.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 class="exp-title">Dewan Ambalan</h3>
+
+<p>
+Memiliki pengalaman dalam organisasi kepramukaan selama 3 tahun dengan fokus pada leadership, teamwork, dan pengembangan karakter.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 class="exp-title">Pembina Pramuka</h3>
+
+<p>
+Berpengalaman menjadi pembina pramuka selama 2 tahun di SD Negeri 4 dan SD Negeri 8 Tambakasri dalam membimbing siswa pada kegiatan kedisiplinan, kepemimpinan, dan aktivitas kepramukaan.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+
+<h2 class="section-title">
+<i class="fa-solid fa-folder-open"></i> Projects
+</h2>
+
+<div class="grid">
+
+<div class="card project-card">
+
+<h3>Portfolio Website</h3>
+
+<p>
+Website personal premium berbasis HTML, CSS, dan JavaScript dengan desain modern, responsive, dan tampilan profesional.
+</p>
+
+<ul>
+<li>Desain modern dan responsive</li>
+<li>UI premium dengan glassmorphism</li>
+<li>Animasi hover dan efek modern</li>
+<li>Optimasi tampilan mobile dan desktop</li>
+</ul>
+
+</div>
+
+<div class="card project-card">
+
+<h3>Database System</h3>
+
+<p>
+Perancangan database MySQL untuk sistem informasi yang terstruktur dan efisien dalam pengelolaan data.
+</p>
+
+<ul>
+<li>Desain relasi tabel database</li>
+<li>Normalisasi data</li>
+<li>Manajemen data terstruktur</li>
+<li>Efisiensi penyimpanan data</li>
+</ul>
+
+</div>
+
+<div class="card project-card">
+
+<h3>SIAP SENKA - Aplikasi Absensi Pegawai</h3>
+
+<p>
+SIAP SENKA merupakan aplikasi absensi pegawai berbasis digital yang dirancang untuk membantu proses pencatatan kehadiran pegawai secara real-time, modern, dan efisien.
+</p>
+
+<ul>
+<li>Login dan autentikasi pengguna</li>
+<li>Absensi masuk dan pulang pegawai</li>
+<li>Penyimpanan data menggunakan MySQL</li>
+<li>Rekap dan laporan absensi</li>
+<li>Interface modern dan mudah digunakan</li>
+<li>Manajemen data pegawai</li>
+</ul>
+
+<p>
+<b>Teknologi:</b> Java, MySQL, Database System
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+<h2 class="section-title">
+<i class="fa-solid fa-envelope"></i> Kontak
+</h2>
+
+<div class="card">
+
+<div class="social-icons">
+
+<!-- EMAIL -->
+<a href="mailto:zudaprima117@gmail.com" target="_blank">
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+<!-- INSTAGRAM -->
+<a href="https://instagram.com/zudaprimadinata_h" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<!-- GITHUB -->
+<a href="https://github.com/" target="_blank">
+<i class="fa-brands fa-github"></i>
+</a>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/6281234567890" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</div>
+
+<p class="contact-text">
+Klik ikon untuk menghubungi saya
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+© 2026 Zuda Portfolio Premium | Built with HTML, CSS & JavaScript
+
+</footer>
+
+</body>
+</html>
